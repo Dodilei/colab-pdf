@@ -1,7 +1,7 @@
 def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/"):
     import os
 
-    print('ddl-colab-pdf version 1.2.7')
+    print('ddl-colab-pdf version 1.3.0')
     # Checking if file_name passed is a string.
     if not isinstance(file_name, str):
         raise TypeError(
@@ -36,7 +36,9 @@ def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/")
     # Attempt to convert to pdf and save it in Gdrive home dir using jupyter nbconvert command.
     try:
         get_ipython().system(
-            "jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf --RegexRemovePreprocessor.patterns='[\s\S]*#tag_remove[\s\S]*'"
+            "jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf \
+            --RegexRemovePreprocessor.patterns='[\s\S]*#tag_remove[\s\S]*' \
+            --TemplateExporter.extra_template_basedirs=/content/"
         )
     except:
         return "nbconvert error"
