@@ -1,7 +1,7 @@
 def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/"):
     import os
 
-    print('ddl-colab-pdf version 1.3.0')
+    print('ddl-colab-pdf version 1.3.1')
     # Checking if file_name passed is a string.
     if not isinstance(file_name, str):
         raise TypeError(
@@ -38,7 +38,8 @@ def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/")
         get_ipython().system(
             "jupyter nbconvert --output-dir='$gdrive_home' '$notebookpath''$file_name' --to pdf \
             --RegexRemovePreprocessor.patterns='[\s\S]*#tag_remove[\s\S]*' \
-            --TemplateExporter.extra_template_basedirs=/content/"
+            --TemplateExporter.extra_template_basedirs=/content/ \
+            --template custom_template"
         )
     except:
         return "nbconvert error"
