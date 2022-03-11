@@ -1,6 +1,7 @@
 def colab_pdf(file_name, notebookpath="/content/drive/MyDrive/Colab Notebooks/"):
     import os
 
+    print('ddl-colab-pdf version 1.1.1')
     # Checking if file_name passed is a string.
     if not isinstance(file_name, str):
         raise TypeError(
