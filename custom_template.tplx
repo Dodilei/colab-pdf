@@ -17,7 +17,7 @@
 
 ((*- block packages -*))
     \usepackage{parskip}
-    \setcounter{secnumdepth}{0} %Suppress section numbers
+    %\setcounter{secnumdepth}{0} %Suppress section numbers
     ((( super() )))
 ((*- endblock packages -*))
 
